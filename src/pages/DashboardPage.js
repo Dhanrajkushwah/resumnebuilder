@@ -8,7 +8,7 @@ const DashboardPage = () => {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <h1>Your Dashboard</h1>
+        <h1>User Dashboard</h1>
         <p>Manage your resumes and track performance analytics</p>
       </header>
 

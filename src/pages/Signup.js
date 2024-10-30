@@ -65,8 +65,9 @@ const Signup = () => {
     <div className="signup-container">
       <div className="signup-card">
         <h1>Sign Up</h1>
+        <br></br>
         <p>Create your account to start building your resume</p>
-
+        <br></br>
         <form onSubmit={handleSignup} className="signup-form">
           <input
             type="text"
@@ -111,14 +112,14 @@ const Signup = () => {
 
         <div className="social-login">
           <p>or sign up with</p>
-          <button className="social-btn google" onClick={() => handleSocialLogin('Google')}>
-            Sign up with Google
-          </button>
           <button className="social-btn apple" onClick={() => handleSocialLogin('Apple')}>
-            Sign up with Apple
+          <i className="fab fa-apple"></i>  Sign up with Apple
+          </button>
+          <button className="social-btn google" onClick={() => handleSocialLogin('Google')}>
+          <i className="fab fa-google"></i> Sign up with Google
           </button>
           <button className="social-btn facebook" onClick={() => handleSocialLogin('Facebook')}>
-            Sign up with Facebook
+          <i className="fab fa-facebook-f"></i> Sign up with Facebook
           </button>
         </div>
 

@@ -1,0 +1,124 @@
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0073e6;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-menu .navbar-item {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #0073e6;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none; /* Hide by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 10;
+}
+.dropdown-icon {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.open {
+  transform: rotate(180deg); /* Rotate icon when open */
+}
+.navbar-item:hover .dropdown-menu {
+  display: block; /* Show dropdown on hover */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f3f4f6;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-buttons .login-btn,
+.navbar-buttons .signup-btn {
+  padding: 10px 20px; 
+  margin-top: 0px !important;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.navbar-buttons .login-btn {
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+.navbar-buttons .login-btn:hover {
+  background-color: #e2e3e5;
+}
+
+.navbar-buttons .signup-btn {
+  background-color: #0073e6;
+  color: #fff;
+}
+
+.navbar-buttons .signup-btn:hover {
+  background-color: #005bb5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-menu {
+      display: none;
+  }
+
+  .navbar-buttons {
+      gap: 10px;
+  }
+}

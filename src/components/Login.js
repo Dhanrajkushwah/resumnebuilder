@@ -1,6 +1,7 @@
-import React, { useState } from 'react';  
+import React, { useState } from 'react';
 import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -8,13 +9,15 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [generalError, setGeneralError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Reset error messages
     setEmailError('');
     setPasswordError('');
+    setGeneralError('');
 
     // Email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,9 +41,16 @@ const Login = () => {
     // If validation fails, do not proceed
     if (!isValid) return;
 
-    // Log data and navigate to dashboard on successful validation
-    console.log('Form submitted:', { email, password });
-    navigate('/dashboard');
+    try {
+      // Log data and send API request
+      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      console.log('Login successful:', response.data);
+      // Navigate to the dashboard on successful login
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Login error:', error.response?.data || error.message);
+      setGeneralError(error.response?.data?.message || 'An error occurred during login');
+    }
   };
 
   return (
@@ -66,6 +76,8 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {passwordError && <p className="error-message">{passwordError}</p>}
+
+          {generalError && <p className="error-message">{generalError}</p>}
 
           <button type="submit" className="login-submit-btn">
             Sign In

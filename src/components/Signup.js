@@ -1,21 +1,22 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/Signup.css';
+
 const Signup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    name: '',
+    fullName: '', 
   });
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   const validate = () => {
     const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+    if (!formData.fullName.trim()) { 
+      newErrors.fullName = 'Full Name is required'; 
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -46,13 +47,19 @@ const Signup = () => {
     validate();
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     const newErrors = validate();
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('User Signed Up:', formData);
-      navigate('/dashboard');
+      try {
+        const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+        console.log('User Signed Up:', response.data);
+        navigate('/dashboard');
+      } catch (error) {
+        console.error('Signup error:', error.response?.data || error.message);
+        setErrors({ general: error.response?.data?.message || 'An error occurred during signup' });
+      }
     }
   };
 
@@ -64,21 +71,19 @@ const Signup = () => {
     <div className="signup-container">
       <div className="signup-card">
         <h1>Sign Up</h1>
-        <br></br>
         <p>Create your account to start building your resume</p>
-        <br></br>
         <form onSubmit={handleSignup} className="signup-form">
           <input
             type="text"
-            name="name"
+            name="fullName" 
             placeholder="Full Name"
-            value={formData.name}
+            value={formData.fullName} 
             onChange={handleInputChange}
             onBlur={handleBlur}
             required
-            className={touched.name && errors.name ? 'input-error' : ''}
+            className={touched.fullName && errors.fullName ? 'input-error' : ''} 
           />
-          {touched.name && errors.name && <p className="error-message">{errors.name}</p>}
+          {touched.fullName && errors.fullName && <p className="error-message">{errors.fullName}</p>} 
 
           <input
             type="email"
@@ -107,18 +112,19 @@ const Signup = () => {
           <button type="submit" className="signup-btn">
             Sign Up
           </button>
+          {errors.general && <p className="error-message">{errors.general}</p>}
         </form>
 
         <div className="social-login">
           <p>or sign up with</p>
           <button className="social-btn apple" onClick={() => handleSocialLogin('Apple')}>
-          <i className="fab fa-apple"></i>  Sign up with Apple
+            <i className="fab fa-apple"></i> Sign up with Apple
           </button>
           <button className="social-btn google" onClick={() => handleSocialLogin('Google')}>
-          <i className="fab fa-google"></i> Sign up with Google
+            <i className="fab fa-google"></i> Sign up with Google
           </button>
           <button className="social-btn facebook" onClick={() => handleSocialLogin('Facebook')}>
-          <i className="fab fa-facebook-f"></i> Sign up with Facebook
+            <i className="fab fa-facebook-f"></i> Sign up with Facebook
           </button>
         </div>
 

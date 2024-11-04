@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Navbar.css';
-
+import '../styles/Navbar.css';
 const Navbar = () => {
   const navigate = useNavigate();
   const [dropdownVisible, setDropdownVisible] = useState(null);

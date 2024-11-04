@@ -1,6 +1,5 @@
 import React from 'react';
-import './Features.css';
-
+import '../styles/Features.css';
 const Features = () => (
   <section className="features" id="features">
     <h2>Our Features</h2>

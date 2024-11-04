@@ -1,6 +1,5 @@
 import React from 'react';
-import './HeroSection.css';
-
+import '../styles/HeroSection.css';
 const HeroSection = () => (
   <section className="hero">
     <div className="hero-content">

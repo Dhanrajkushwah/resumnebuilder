@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import DashboardPage from './pages/DashboardPage';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
+import DashboardPage from './components/DashboardPage';
+import Signup from './components/Signup';
+import Login from './components/Login';
 import './App.css';
 function App() {
   return (

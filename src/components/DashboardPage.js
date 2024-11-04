@@ -1,5 +1,5 @@
 import React from 'react';
-import './DashboardPage.css';
+import '../styles/DashboardPage.css';
 import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {

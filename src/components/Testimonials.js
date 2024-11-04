@@ -1,6 +1,5 @@
 import React from 'react';
-import './Testimonials.css';
-
+import '../styles/Testimonials.css';
 const Testimonials = () => (
   <section className="testimonials" id="testimonials">
     <h2>What Our Users Say</h2>

@@ -1,7 +1,6 @@
 // src/components/Pricing.js
 import React from 'react';
-import './Pricing.css';
-
+import '../styles/Pricing.css';
 const Pricing = () => {
   return (
     <div className="pricing" id="pricing">

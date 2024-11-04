@@ -1,6 +1,9 @@
+// src/components/Navbar.js
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Navbar.css';
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [dropdownVisible, setDropdownVisible] = useState(null);
@@ -26,13 +29,16 @@ const Navbar = () => {
         <a href="#testimonials">Testimonials</a>
         <a href="#pricing">Pricing</a>
 
-        {/* Dropdown menus */}
+        {/* Tools Dropdown */}
         <div
           className="navbar-item"
           onMouseEnter={() => showDropdown('tools')}
           onMouseLeave={hideDropdown}
         >
-          <span><a>Tools</a> <span className={`dropdown-icon ${isDropdownOpen('tools') ? 'open' : ''}`}>▼</span></span>
+          <span>
+            <a href="#tools">Tools</a>
+            <span className={`dropdown-icon ${isDropdownOpen('tools') ? 'open' : ''}`}>▼</span>
+          </span>
           {isDropdownOpen('tools') && (
             <div className="dropdown-menu">
               <a href="#resume-checker">Resume Checker</a>
@@ -42,12 +48,16 @@ const Navbar = () => {
           )}
         </div>
 
+        {/* Resume and CV Dropdown */}
         <div
           className="navbar-item"
           onMouseEnter={() => showDropdown('resume-cv')}
           onMouseLeave={hideDropdown}
         >
-          <span><a>Resume and CV</a> <span className={`dropdown-icon ${isDropdownOpen('resume-cv') ? 'open' : ''}`}>▼</span></span>
+          <span>
+            <a href="#resume-cv">Resume and CV</a>
+            <span className={`dropdown-icon ${isDropdownOpen('resume-cv') ? 'open' : ''}`}>▼</span>
+          </span>
           {isDropdownOpen('resume-cv') && (
             <div className="dropdown-menu">
               <a href="#resume-template">Resume Templates</a>
@@ -56,27 +66,64 @@ const Navbar = () => {
           )}
         </div>
 
+        {/* Cover Letter Dropdown */}
         <div
           className="navbar-item"
           onMouseEnter={() => showDropdown('cover-letter')}
           onMouseLeave={hideDropdown}
         >
-          <span><a>Cover Letter</a><span className={`dropdown-icon ${isDropdownOpen('cover-letter') ? 'open' : ''}`}>▼</span></span>
+          <span>
+            <a href="#cover-letter">Cover Letter</a>
+            <span className={`dropdown-icon ${isDropdownOpen('cover-letter') ? 'open' : ''}`}>▼</span>
+          </span>
           {isDropdownOpen('cover-letter') && (
             <div className="dropdown-menu">
-              <a href="#cover-letter-samples">Cover Letter Samples</a>
-              <a href="#cover-letter-builder">Cover Letter Builder</a>
+              <Link to="/cover-letter-builder">Build Cover Letter</Link>
+              <Link to="/cover-letter">Cover Letter Format</Link>
+              <Link to="/how-to-cover-letter">How to Write a Cover Letter</Link>
+              <Link to="/cover-letter-help">Cover Letter Help</Link>
+              <Link to="/cover-letter-builder">Create a Cover Letter Now</Link>
             </div>
           )}
         </div>
 
-        <div className="about">
-          <a className="about" href="#about">About</a>
+        {/* About Dropdown */}
+        <div
+          className="navbar-item"
+          onMouseEnter={() => showDropdown('about')}
+          onMouseLeave={hideDropdown}
+        >
+          <span>
+            <a href="#about">About</a>
+            <span className={`dropdown-icon ${isDropdownOpen('about') ? 'open' : ''}`}>▼</span>
+          </span>
+          {isDropdownOpen('about') && (
+            <div className="dropdown-menu">
+              <div className="dropdown-header">
+                Learn more about NextStepCV and our services.
+              </div>
+              <ul>
+                <li className="dropdown-item">
+                  <Link to="/payment">Payment</Link>
+                </li>
+                <li className="dropdown-item">
+                  <Link to="/contact">Contact</Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
+
+        {/* Account Link */}
+        <div className="navbar-item">
+          <Link to="/account">My Account</Link>
+        </div>
+
+        {/* Login and Sign Up buttons */}
         <div className="navbar-buttons">
-        <button className="login-btn" onClick={handleLoginClick}>Login</button>
-        <button className="signup-btn" onClick={handleSignupClick}>Sign Up</button>
-      </div>
+          <button className="login-btn" onClick={handleLoginClick}>Login</button>
+          <button className="signup-btn" onClick={handleSignupClick}>Sign Up</button>
+        </div>
       </div>
     </nav>
   );

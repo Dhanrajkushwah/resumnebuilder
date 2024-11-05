@@ -27,10 +27,7 @@ const Navbar = () => {
         ☰
       </button>
       <div className={`navbar-menu ${menuOpen ? 'open' : ''}`}>
-        <a href="#features">Features</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#pricing">Pricing</a>
-
+        <Link to="/"> <a to="/" >Home</a></Link>
         {/* Tools Dropdown */}
         <div
           className="navbar-item"

@@ -18,7 +18,11 @@
   width: 90%; /* Adjusted for responsiveness */
   margin: 10px; /* Adds spacing on smaller screens */
 }
-
+.signup-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
 /* Error Message */
 .error-message {
   color: red !important;
@@ -44,7 +48,7 @@
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background-color: #0073e6;
+  background-color: #17a2b8;
   color: #ffffff;
   border: none;
   border-radius: 4px;

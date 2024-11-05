@@ -46,7 +46,7 @@
 
 .pricing-card h2 {
   font-size: 1.8rem;
-  color: #0073e6;
+  color: #17a2b8;
 }
 
 .price {
@@ -73,7 +73,7 @@
 
 .pricing-btn {
   padding: 12px 25px;
-  background-color: #0073e6;
+  background-color: #17a2b8;
   color: white;
   border: none;
   border-radius: 5px;
@@ -121,7 +121,7 @@
 .choose-plan-btn {
   width: 100%;
   padding: 10px;
-  background-color: #0073e6;
+  background-color: #17a2b8;
   color: white;
   border: none;
   border-radius: 5px;

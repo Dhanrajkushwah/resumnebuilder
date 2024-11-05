@@ -64,14 +64,21 @@ const Signup = () => {
   };
 
   const handleSocialLogin = (platform) => {
-    console.log(`Sign up with ${platform}`);
+    if (platform === 'Google') {
+      window.location.href = 'http://localhost:5000/api/auth/google';
+    } else if (platform === 'Facebook') {
+      window.location.href = 'http://localhost:5000/api/auth/facebook';
+    } else if (platform === 'Apple') {
+      console.log(`Sign up with ${platform}`);
+    }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-card">
-        <h1>Sign Up</h1>
+        <h1 className="signup-title">Sign Up</h1>
         <p>Create your account to start building your resume</p>
+        <br></br>
         <form onSubmit={handleSignup} className="signup-form">
           <input
             type="text"

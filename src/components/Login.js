@@ -14,16 +14,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Reset error messages
     setEmailError('');
     setPasswordError('');
     setGeneralError('');
 
-    // Email validation regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let isValid = true;
 
-    // Validate email
     if (!email) {
       setEmailError('Please enter your email address.');
       isValid = false;
@@ -32,25 +29,29 @@ const Login = () => {
       isValid = false;
     }
 
-    // Validate password
     if (!password) {
       setPasswordError('Please enter your password.');
       isValid = false;
     }
 
-    // If validation fails, do not proceed
     if (!isValid) return;
 
     try {
-      // Log data and send API request
       const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
       console.log('Login successful:', response.data);
-      // Navigate to the dashboard on successful login
       navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
       setGeneralError(error.response?.data?.message || 'An error occurred during login');
     }
+  };
+
+  const handleGoogleSignIn = () => {
+    window.location.href = 'http://localhost:5000/api/auth/google';
+  };
+
+  const handleFacebookSignIn = () => {
+    window.location.href = 'http://localhost:5000/api/auth/facebook';
   };
 
   return (
@@ -83,7 +84,7 @@ const Login = () => {
             Sign In
           </button>
         </form>
-        
+
         <div className="disclaimer-text">
           <p className="login-divider">
             By clicking on Sign In you also agree to our
@@ -97,10 +98,10 @@ const Login = () => {
           <button className="social-btn apple-btn">
             <i className="fab fa-apple"></i> Sign in with Apple
           </button>
-          <button className="social-btn google-btn">
+          <button className="social-btn google-btn" onClick={handleGoogleSignIn}>
             <i className="fab fa-google"></i> Sign in with Google
           </button>
-          <button className="social-btn facebook-btn">
+          <button className="social-btn facebook-btn" onClick={handleFacebookSignIn}>
             <i className="fab fa-facebook-f"></i> Sign in with Facebook
           </button>
         </div>

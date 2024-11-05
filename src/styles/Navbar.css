@@ -13,11 +13,13 @@
 .navbar-logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #0073e6;
+  color: #17a2b8 !important; /* Logo color */
 }
-.about{
+
+.about {
   margin-top: 10px !important;
 }
+
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
@@ -29,7 +31,6 @@
 .navbar-menu {
   display: flex;
   gap: 20px;
-  
 }
 
 .navbar-item {
@@ -39,14 +40,14 @@
 
 .navbar-menu a {
   text-decoration: none;
-  color: #333;
+  color: #333; /* Link color */
   font-size: 1rem;
   transition: color 0.3s ease;
   margin-top: 10px !important;
 }
 
 .navbar-menu a:hover {
-  color: #0073e6;
+  color: #17a2b8; /* Link hover color */
 }
 
 /* Dropdown Menu */
@@ -82,7 +83,7 @@
 .dropdown-menu a {
   display: block;
   padding: 10px 20px;
-  color: #333;
+  color: #333; /* Dropdown link color */
   text-decoration: none;
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
@@ -90,7 +91,8 @@
 }
 
 .dropdown-menu a:hover {
-  background-color: #f3f4f6;
+  background-color: #17a2b8; /* Dropdown hover background */
+  color: #fff; /* Dropdown hover text color */
 }
 
 .navbar-buttons {
@@ -112,23 +114,22 @@
 }
 
 .navbar-buttons .login-btn {
-  background-color: #f3f4f6;
+  background-color: #f3f4f6; /* Login button background */
   color: #333;
 }
 
 .navbar-buttons .login-btn:hover {
-  background-color: #e2e3e5;
+  background-color: #e2e3e5; /* Login button hover */
 }
 
 .navbar-buttons .signup-btn {
-  background-color: #0073e6;
+  background-color: #17a2b8; /* Signup button background */
   color: #fff;
 }
 
 .navbar-buttons .signup-btn:hover {
-  background-color: #005bb5;
+  background-color: #138496; /* Signup button hover */
 }
-
 
 @media (max-width: 768px) {
   .navbar-menu {

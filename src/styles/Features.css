@@ -75,7 +75,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   gap: 30px;
-  background-image: radial-gradient(226.12% 147.77% at 64.51% 47.31%, #2e8fe7 0, #0070d6 36.88%, #005aab 69.5%, #0070d6 100%);
+  background-image: radial-gradient(226.12% 147.77% at 64.51% 47.31%, #17a2b8 0, #17a2b8 36.88%, #17a2b8 69.5%, #17a2b8 100%);
   padding-top: 4rem;
   position: relative;
   margin-top: 50px;
@@ -116,6 +116,7 @@
 
 .button--whiteBlue:hover {
   background-color: #005bb5;
+  color: white;
 }
 
 /* Image section styling */

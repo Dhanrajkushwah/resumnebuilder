@@ -101,14 +101,8 @@ const Navbar = () => {
               <div className="dropdown-header">
                 Learn more about NextStepCV and our services.
               </div>
-              <ul>
-                <li className="dropdown-item">
                   <Link to="/payment">Payment</Link>
-                </li>
-                <li className="dropdown-item">
                   <Link to="/contact">Contact</Link>
-                </li>
-              </ul>
             </div>
           )}
         </div>
